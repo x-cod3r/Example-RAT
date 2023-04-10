@@ -3,7 +3,7 @@ This is a model that is often found within system administration type tools and 
 
 Video Demo: https://vimeo.com/816043119
 
-The stub is ~463 KB and written in C#.
+The stub is 550 KB and written in C#.
 Features:
 1. Disable Windows Defender
 2. Startup Persistence
