@@ -7,8 +7,6 @@ Simple Admin is a remote administration tool written in C# for the stub and PHP 
 ![simpleAdminAdminPage](https://github.com/rykergogo/Simple-Admin/assets/87205868/01f01049-813d-4667-af3d-3f7aa253f1ff)
 
 
-Video Demo: https://vimeo.com/816043119
-
 The stub is 550 KB and written in C#.
 Features:
 1. Disable Windows Defender
