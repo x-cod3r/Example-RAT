@@ -1,4 +1,4 @@
-# Simple-Admin
+# Example RAT
 This project is for demonstrational purposes only and should not be used maliciously. I am not responsible for any damages that occur from use of this tool.
 
 Simple Admin is a remote administration tool written in C# for the stub and PHP for the front-end control server.
