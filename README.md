@@ -7,7 +7,7 @@ find this line in all php files and add your credintials and link to database an
 
 in program.cs file line 73 find this line and set url for your control server
        
-       ConnectionIPHandler.IPSet("set url for your control server");
+       ConnectionIPHandler.IPSet("UrlForYourControlServer");
 
 Example RAT is a remote administration tool written in C# for the stub and PHP for the front-end control server.
 
